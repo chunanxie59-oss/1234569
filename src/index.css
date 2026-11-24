@@ -1,0 +1,109 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'DM Sans', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-display {
+  font-family: 'Barlow Condensed', 'Noto Sans TC', sans-serif;
+}
+
+.font-mono-telemetry {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle tarmac apex curb accent strip (4px high) */
+.curb-stripe {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #E11D2E 0px,
+    #E11D2E 16px,
+    #F4F4F5 16px,
+    #F4F4F5 32px
+  );
+}
+
+/* Subtle pit-garage asphalt grid */
+.asphalt-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Motion streaks strictly using transform + opacity */
+@keyframes speedStreak {
+  0% {
+    transform: translateX(-30%) skewX(-18deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.35;
+  }
+  75% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateX(130%) skewX(-18deg);
+    opacity: 0;
+  }
+}
+
+.animate-speed-streak {
+  animation: speedStreak 3.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.animate-speed-streak-delayed {
+  animation: speedStreak 4.6s cubic-bezier(0.16, 1, 0.3, 1) 1.5s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-speed-streak,
+  .animate-speed-streak-delayed {
+    animation: none;
+    opacity: 0.12;
+  }
+}
+
+/* Custom motorsport range input */
+input[type='range'].track-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type='range'].track-slider::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 2px;
+  background: #222631;
+}
+
+input[type='range'].track-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -7px;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  background: #E11D2E;
+  border: 2px solid #F4F4F5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+input[type='range'].track-slider:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid #F59E0B;
+  outline-offset: 2px;
+}

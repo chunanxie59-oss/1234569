@@ -1,0 +1,6 @@
+{
+  "name": "2.0 NA GT86 · 賽道雙階演化特輯",
+  "description": "Toyota GT86 (#86 藤澤 386) 雙階空力進化與賽道氛圍互動展示網頁，結合即時轉速聲浪模擬與空力對比。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
